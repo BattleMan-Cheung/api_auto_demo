@@ -1,0 +1,13 @@
+2020-10-29 12:44:24,331  test_register.py:43  ROOT - ERROR：用例执行失败： :: 2 != 1
+2020-10-29 13:10:19,400  test_register.py:44  ROOT - ERROR：用例执行失败： :: 2 != 1
+2020-10-29 13:18:46,657  test_register.py:44  ROOT - ERROR：用例执行失败：2 != 1
+2020-10-29 13:19:05,064  test_register.py:44  ROOT - ERROR：用例执行失败：2 != 1
+2020-10-29 13:20:53,997  test_register.py:44  ROOT - ERROR：用例执行失败：2 != 1
+2020-10-29 13:21:39,558  test_register.py:44  ROOT - ERROR：用例执行失败：2 != 1
+2020-10-29 13:25:27,065  test_register.py:44  ROOT - ERROR：用例执行失败：2 != 1
+2020-10-29 13:25:36,774  test_register.py:44  ROOT - ERROR：用例执行失败：2 != 1
+2020-10-29 13:26:58,823  test_register.py:44  ROOT - ERROR：用例执行失败：2 != 1
+2020-10-29 13:30:25,637  test_register.py:44  ROOT - ERROR：用例执行失败：2 != 1
+2020-10-29 15:13:22,262  logginghandler.py:41  ROOT - ERROR：焕友要努力努力再努力呀！你可是个有梦想的人！
+2020-10-29 17:48:15,089  test_register.py:44  ROOT - ERROR：用例执行失败： :: 2 != 1
+2020-10-29 17:48:30,485  test_register.py:42  ROOT - ERROR：用例执行失败： :: 2 != 1

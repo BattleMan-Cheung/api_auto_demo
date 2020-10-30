@@ -1,0 +1,17 @@
+logger:
+  name: ROOT
+  level: WARNING
+  file: \log.txt
+  fmt: '%(asctime)s  %(filename)s:%(lineno)d  %(name)s - %(levelname)s：%(message)s'
+
+db:
+  host: '120.78.128.25'
+  port: 3306
+  user: 'future'
+  pwd: '123456'
+  database: 'futureloan'
+
+# 测试账号
+test_account:
+  user: '15519131977'
+  pwd: '12345678'
