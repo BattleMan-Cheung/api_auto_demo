@@ -1,12 +1,11 @@
 import json
 import unittest
 
-from common.confighandler import YAMLHandler
 from common.excelhandler import ExcelHandler
 from common.logginghandler import logger
 from config.setting import config
 from libs import ddt
-from middleware.helper import Context
+from middleware.helper import replace_tag
 from common.requestshandler import RequestsHandler
 
 
@@ -21,24 +20,26 @@ class TestRegister(unittest.TestCase):
 
     def tearDown(self) -> None:
         self.request.close_session()
-        pass
 
     @ddt.data(*data)
     def test_register(self, test_data):
-        # 替换注册用手机号
-        phone = Context().new_phone
-        if '#new_phone#' in test_data['data']:
-            test_data['data'] = test_data['data'].replace('#new_phone#', phone)
 
+        # 替换测试数据中的标签
+        test_data = replace_tag(test_data)
+        # 发生请求
         res = self.request.visit(method=test_data['method'],
                                  url=config.host + test_data['url'],
                                  json=json.loads(test_data['data']),
                                  headers=json.loads(test_data['headers']))
 
         try:
+            # 断言code业务码
             self.assertEqual(test_data['expected'], res['code'])
+            # 用例执行结果回写至Excel
             self.eh.write_data(config.data_path, 'register', test_data['case_id'] + 1, 8, 'PASS')
         except AssertionError as e:
+            # 日志记录
             logger.error('用例执行失败：{}'.format(e))
-            self.eh.write_data(config.data_path, 'register', test_data['case_id'] + 1, 8, 'FAIL')
+            # 用例执行结果回写至Excel
+            self.eh.write_data(config.data_path, 'register', test_data['case_id'] + 1, 8, 'FAILED')
             raise e

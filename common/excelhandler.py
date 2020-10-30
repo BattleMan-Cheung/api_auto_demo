@@ -1,3 +1,5 @@
+import json
+
 import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -48,4 +50,6 @@ class ExcelHandler:
 
 if __name__ == '__main__':
     eh = ExcelHandler(config.data_path)
-    print(eh.read_data('register'))
+    data = eh.read_data('register')
+
+    print(json.dumps(data))

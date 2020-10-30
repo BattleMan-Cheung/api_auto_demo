@@ -1,4 +1,7 @@
+import json
+import re
 from random import randint
+
 from jsonpath import jsonpath
 from common.confighandler import yaml_data
 from common.dbhandler import MySQLHandler
@@ -49,10 +52,22 @@ class Context:
         token_value = jsonpath(self.res, '$..token')[0]
         return ' '.join([token_type, token_value])
 
+    @property
+    def member_id(self):
+        return jsonpath(self.res, '$..id')[0]
+
+
+def replace_tag(target):
+    """利用正则，动态替换属性"""
+    re_pattern = r'#(.+?)#'
+    target = str(target)
+    while re.findall(re_pattern, target):
+        key = re.findall(re_pattern, target)[0]
+        target = re.sub(re_pattern, str(getattr(Context(), key)), target, 1)
+    return eval(target)
+
 
 if __name__ == '__main__':
     context = Context()
-    print(context.token)
-    print(context.exist_phone)
-    print(context.new_phone)
 
+    print(context.member_id)
