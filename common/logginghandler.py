@@ -36,5 +36,4 @@ logger = LoggingHandler(name=yaml_data['logger']['name'],
 
 
 if __name__ == '__main__':
-    print(Config().log_dir + yaml_data['logger']['file'])
     logger.error('焕友要努力努力再努力呀！你可是个有梦想的人！')

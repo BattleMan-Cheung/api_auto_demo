@@ -43,3 +43,7 @@ class TestRegister(unittest.TestCase):
             # 用例执行结果回写至Excel
             self.eh.write_data(config.data_path, 'register', test_data['case_id'] + 1, 8, 'FAILED')
             raise e
+
+
+if __name__ == '__main__':
+    unittest.main()
